@@ -3,3 +3,4 @@ icons/
 *.pyc
 .cache/
 *.gcfix.tmTheme
+package-metadata.json
