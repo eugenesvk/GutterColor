@@ -211,43 +211,59 @@ class Line:
     """Returns the color in the line, if any CSS color name is found."""
     matches = re.search(self.WEB_COLORS_REGEX, self.text)
     if matches:
-      return matches.group(1)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
 
   def hex_color(self):
     """Returns the color in the line, if any hex is found."""
     matches = re.search(Line.HEX_REGEXP, self.text)
     if matches:
-      return matches.group(0)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
 
   def rgb_color(self):
     """Returns the color in the line, if any rgb is found."""
     matches = re.search(Line.RGB_REGEXP, self.text)
     if matches:
-      return matches.group(0)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
 
   def rgba_color(self):
     """Returns the color in the line, if any rgba is found."""
     matches = re.search(Line.RGBA_REGEXP, self.text)
     if matches:
       if self.transparency_settings()[0]:
-        return matches.group(0)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
       else:
-        return 'rgb(' + matches.group(1) + ')'
+        lowercase = 'rgb(' + matches.group(1) + ')'
+        lowercase = lowercase.lower()
+        return lowercase
 
   def hsl_color(self):
     """Returns the color in the line, if any hsl is found."""
     matches = re.search(Line.HSL_REGEXP, self.text)
     if matches:
-      return matches.group(0)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
 
   def hsla_color(self):
     """Returns the color in the line, if any hsla is found."""
     matches = re.search(Line.HSLA_REGEXP, self.text)
     if matches:
       if self.transparency_settings()[0]:
-        return matches.group(0)
+        lowercase = matches.group(0)
+        lowercase = lowercase.lower()
+        return lowercase
       else:
-        return 'hsl(' + matches.group(1) + ')'
+        lowercase = 'hsl(' + matches.group(1) + ')'
+        lowercase = lowercase.lower()
+        return lowercase
 
   def custom_color(self):
     """Returns the color in the line, if any user-defined is found."""
