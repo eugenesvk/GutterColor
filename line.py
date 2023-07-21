@@ -306,7 +306,8 @@ class Line:
       "/usr/bin"
     ]
 
-    if ( platform.system()=="Windows"):
+    cur_os = platform.system()
+    if ( cur_os == "Windows"):
       delimiter = ";"
       convert_name = "convert.exe"
     else:
@@ -321,10 +322,14 @@ class Line:
     for path in paths:
       if not path.endswith(convert_name):
         path = os.path.join(path,convert_name)
-      if os.path.isfile(path) and os.access(path, os.X_OK) \
-          and not os.path.samefile(path, WINDOWS_PATH):
-        convert_path = path
-        break
+      if os.path.isfile(path) and os.access(path, os.X_OK):
+        if ( cur_os == "Windows"):
+          if not os.path.samefile(path, WINDOWS_PATH):
+            convert_path = path
+            break
+        else:
+          convert_path = path
+          break
 
     (use_transparency, background_path) = self.transparency_settings()
 
