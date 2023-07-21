@@ -211,7 +211,7 @@ class Line:
     """Returns the color in the line, if any CSS color name is found."""
     matches = re.search(self.WEB_COLORS_REGEX, self.text)
     if matches:
-        lowercase = matches.group(0)
+        lowercase = matches.group(1)
         lowercase = lowercase.lower()
         return lowercase
 
