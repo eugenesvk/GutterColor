@@ -1,57 +1,21 @@
-{
-
-    /*
-     * The location of the ImageMagic convert script.
-     */
-    "convert_path" : "/usr/bin/convert",
-
-    /*
-     * The syntax for which to run GutterColor.
-     */
-    "supported_syntax": ["css", "scss", "sass", "less", "stylus", "css3", "xml"],
-
-    /*
-     * Whether to render images with an alpha channel.
-     * Setting false renders all colors as opaque, true composites
-     * colors onto a gray checkered background, and "light" is
-     * the same as true, but with a brighter BG texture
-     */
-    "use_transparency": true,
-
-    /*
-     * Whether Gutter Color should automatically create a new version of the active
-     * color scheme that doesn't darken gutter icons. (common on light backgrounds)
-     * This should be a boolean or an array of strings.
-     *
-     * Valid strings are "syntax-specific"/"syntax", "global"/"user", and settings
-     * file names (e.g. "Packages/SomePlugin/SomePlugin.sublime-settings").
-     * "fix_color_schemes": true is eqivalent to ["global", "syntax-specific"]
-     */
-    "fix_color_schemes": false,
-
-    /*
-     * Whether Gutter Color should search for and render colors for color names,
-     * e.g. for use with CSS3 color names.
-     */
-    "textual_colors": true,
-
-    /*
-     * Additional user-defined color matches.
-     */
-    /*
-    "custom_colors": [
-        {
-            // The rule to match
-            "regex": "(['\"])((?:[0-9a-fA-F]{3}){1,2}(?![0-9a-fA-F]+))\\1",
-            // The capture group to use; defaults to 0 (the whole expression)
-            "group_id": 2,
-            // Strings to be concatenated before sending to ImageMagic
-            "output_prefix": "#",
-            "output_suffix": ""
-        },{
-            "regex": "color=([0-9a-fA-F]{6})",
-            "group_id": 1,
-            "output_prefix": "#"
-        }]
-    */
+{"supported_syntax"	:["css","scss","sass","less","stylus","css3","xml"], // syntax for which to run GutterColor
+"convert_path"     	:"/usr/bin/convert"	, // ImageMagic convert script location
+"use_transparency" 	:true              	, //|true| 	render images with an alpha channel. false renders all colors as opaque, true composites colors onto a gray checkered background, and "light" is the same as true, but with a brighter BG texture
+"fix_color_schemes"	:false             	, //|false|	automatically create a new version of the active color scheme that doesn't darken gutter icons. (common on light backgrounds) This should be a boolean or an array of strings.
+"textual_colors"   	:true              	, //|true| 	Whether Gutter Color should search for and render colors for color names, e.g. for use with CSS3 color names.
+ // Valid strings: "syntax-specific"/"syntax", "global"/"user", and settings
+ // file names (e.g. "Packages/SomePlugin/SomePlugin.sublime-settings").
+ // "fix_color_schemes": true is eqivalent to ["global", "syntax-specific"]
+/*
+"custom_colors":[ // Additional user-defined color matches
+  { "regex": "(['\"])((?:[0-9a-fA-F]{3}){1,2}(?![0-9a-fA-F]+))\\1", // The rule to match
+    "group_id": 2       	, // The capture group to use; defaults to 0 (the whole expression)
+    "output_prefix": "#"	, // Strings to be concatenated before sending to ImageMagic
+    "output_suffix": ""
+  },
+  { "regex": "color=([0-9a-fA-F]{6})",
+    "group_id": 1,
+    "output_prefix": "#"
+  }]
+*/
 }
